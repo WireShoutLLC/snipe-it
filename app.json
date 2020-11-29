@@ -11,7 +11,7 @@
     "success_url": "/setup",
     "env": {
       "APP_KEY": {
-        "description": "A secret key for verifying the integrity of signed cookies.",
+        "description": "A secret key for verifying the integrity of signed cookies. (https://coderstoolbox.online/toolbox/generate-symfony-secret)",
         "value": ""
       },
       "APP_ENV": {
