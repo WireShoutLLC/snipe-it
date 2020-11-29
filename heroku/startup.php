@@ -29,5 +29,5 @@ if (getenv("DB_DATABASE") || getenv("DB_HOST") || getenv("DB_USERNAME")) {
   file_put_contents('./.env', 'DB_DATABASE=' . ltrim(parse_url($url, PHP_URL_PATH), '/'). PHP_EOL, FILE_APPEND);
 }
 
-file_put_contents('./.env', 'APP_TRUSTED_PROXIES=REMOTE_ADDR' . PHP_EOL, FILE_APPEND); //https://devcenter.heroku.com/articles/deploying-symfony4#trusting-the-heroku-router
+file_put_contents('./.env', 'APP_TRUSTED_PROXIES=10.0.0.0/8' . PHP_EOL, FILE_APPEND); //https://devcenter.heroku.com/articles/deploying-symfony4#trusting-the-heroku-router
 ?>
