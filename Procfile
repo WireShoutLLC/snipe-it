@@ -1,1 +1,1 @@
-web: php heroku/startup.php && source setupvars && php -r 'var_dump($_ENV)' && env && heroku-php-apache2 public/
+web: php heroku/startup.php && source setupvars && env && heroku-php-apache2 public/
