@@ -1,1 +1,1 @@
-web: php heroku/startup.php && source setupvars && ls -lah && ls -lah heroku && heroku-php-apache2 public/
+web: php heroku/startup.php && ls -lah && heroku-php-apache2 public/
