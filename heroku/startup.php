@@ -8,8 +8,7 @@ if (getenv("DB_DATABASE") || getenv("DB_HOST") || getenv("DB_USERNAME")) {
   echo "Database Environment variables are manually set. Ignoring add-ins.";
 } else if (getenv("CLEARDB_DATABASE_URL")) {  // ClearDB
   echo "Using ClearDB Heroku add-in.";
-  $url = getenv("CLEARDB_DATABASE_URL");
-  exec('export DB_HOST='     . parse_url($url, PHP_URL_HOST));
+  $url = getenv('CLEARDB_DATABASE_URL'); exec('export DB_HOST=' . parse_url($url, PHP_URL_HOST));
   exec('export DB_USERNAME=' . parse_url($url, PHP_URL_USER));
   exec('export DB_PASSWORD=' . parse_url($url, PHP_URL_PASS));
   exec('export DB_DATABASE=' . parse_url($url, PHP_URL_PATH));
@@ -29,5 +28,5 @@ if (getenv("DB_DATABASE") || getenv("DB_HOST") || getenv("DB_USERNAME")) {
   exec('export DB_DATABASE=' . parse_url($url, PHP_URL_PATH));
 }
 
-
+var_dump($_ENV);
 ?>
