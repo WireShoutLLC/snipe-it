@@ -1,5 +1,0 @@
-run:
-  web:
-    command:
-      - php heroku/startup.php
-      - heroku-php-apache2 public/
