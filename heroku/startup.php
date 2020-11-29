@@ -29,5 +29,13 @@ if (getenv("DB_DATABASE") || getenv("DB_HOST") || getenv("DB_USERNAME")) {
   file_put_contents('./.env', 'DB_DATABASE=' . ltrim(parse_url($url, PHP_URL_PATH), '/'). PHP_EOL, FILE_APPEND);
 }
 
+if (getenv("REDIS_URL")) {                    // Heroku Redis
+  echo "Setting up Heroku Redis.\n";
+  $url = getenv("REDIS_URL");
+  file_put_contents('./.env', 'REDIS_HOST='     . parse_url($url, PHP_URL_HOST). PHP_EOL, FILE_APPEND);
+  file_put_contents('./.env', 'REDIS_PASSWORD=' . parse_url($url, PHP_URL_PASS). PHP_EOL, FILE_APPEND);
+  file_put_contents('./.env', 'REDIS_PORT='     . parse_url($url, PHP_URL_PORT). PHP_EOL, FILE_APPEND);
+}
+
 file_put_contents('./.env', 'APP_TRUSTED_PROXIES=10.0.0.0/8' . PHP_EOL, FILE_APPEND); //https://devcenter.heroku.com/articles/deploying-symfony4#trusting-the-heroku-router
 ?>
